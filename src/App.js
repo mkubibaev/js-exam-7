@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import MenuItem from './components/MenuItem/MenuItem';
 
 class App extends Component {
     render() {
@@ -30,24 +30,7 @@ class App extends Component {
                 <div className="menu">
                     <h3 className="module-title">Menu</h3>
                     <div className="menu-items">
-                        <div className="menu-item">
-                            <div className="menu-item__img">
-
-                            </div>
-                            <div className="menu-item__txt">
-                                <h4 className="menu-item__title">Hamburger</h4>
-                                <span>Price: 40 KGS</span>
-                            </div>
-                        </div>
-                        <div className="menu-item">
-                            <div className="menu-item__img">
-
-                            </div>
-                            <div className="menu-item__txt">
-                                <h4 className="menu-item__title">Hamburger</h4>
-                                <span>Price: 40 KGS</span>
-                            </div>
-                        </div>
+                        <MenuItem />
                     </div>
                 </div>
             </div>
