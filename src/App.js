@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MenuItem from './components/MenuItem/MenuItem';
+import OrderItem from './components/OrderItem/OrderItem';
 
 class App extends Component {
     render() {
@@ -8,18 +9,9 @@ class App extends Component {
                 <div className="order">
                     <h3 className="module-title">Order details</h3>
                     <div className="order-inner">
-                        <div className="order-item">
-                            <span>Hamburger</span>
-                            <span>x 1</span>
-                            <span>1 KGS</span>
-                            <button>&times;</button>
-                        </div>
-                        <div className="order-item">
-                            <span>Hamburger</span>
-                            <span>x 1</span>
-                            <span>1 KGS</span>
-                            <button>&times;</button>
-                        </div>
+
+                        <OrderItem />
+
                         <div className="order-item total">
                             <span>Total price:</span>
                             <span>120 KGS</span>
