@@ -9,6 +9,8 @@ class App extends Component {
             {id: 2, name: 'Cheeseburger', price: 90, count: 0},
             {id: 3, name: 'Tea', price: 30, count: 0},
             {id: 4, name: 'Cola', price: 40, count: 0},
+            {id: 5, name: 'Coffee', price: 50, count: 0},
+            {id: 6, name: 'Fries', price: 45, count: 0},
         ],
         totalPrice: 0
     };
@@ -56,20 +58,44 @@ class App extends Component {
     };
 
     render() {
-        console.log(this.state);
+        let orderList = null;
+
+        if (this.state.totalPrice > 0) {
+            orderList = (
+                <div className="order-inner">
+                    {this.state.items.map(order => {
+                        if (order.count) {
+                            return (
+                                <OrderItem
+                                    key={order.id}
+                                    name={order.name}
+                                    count={order.count}
+                                    price={order.price}
+                                    onRemoveItem={this.removeItemHandler.bind(this, order.id)}
+                                />
+                            )}
+                            return null;
+                        })}
+                    <div className="order-item total">
+                        <span>Total price:</span>
+                        <span>{this.state.totalPrice} KGS</span>
+                    </div>
+                </div>
+            )
+        } else {
+            orderList = (
+                <div className="order-inner">
+                    <p>Order is empty!</p>
+                </div>
+            )
+        }
+
         return (
             <div className="container">
                 <div className="order">
                     <h3 className="module-title">Order details</h3>
-                    <div className="order-inner">
 
-                        <OrderItem />
-
-                        <div className="order-item total">
-                            <span>Total price:</span>
-                            <span>{this.state.totalPrice} KGS</span>
-                        </div>
-                    </div>
+                    {orderList}
                 </div>
 
                 <div className="menu">
