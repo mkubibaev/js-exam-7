@@ -25,6 +25,22 @@ class App extends Component {
         this.setState({items}, this.calcTotalPrice());
     };
 
+    removeItemHandler = (id) => {
+        const items = [...this.state.items];
+
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].id === id) {
+                items[i].count--;
+            }
+
+            if (items[i].count < 0) {
+                items[i].count = 0;
+            }
+        }
+
+        this.setState({items}, this.calcTotalPrice());
+    };
+
     calcTotalPrice = () => {
         const items = [...this.state.items];
         let totalPrice = 0;
@@ -51,7 +67,7 @@ class App extends Component {
 
                         <div className="order-item total">
                             <span>Total price:</span>
-                            <span>120 KGS</span>
+                            <span>{this.state.totalPrice} KGS</span>
                         </div>
                     </div>
                 </div>
